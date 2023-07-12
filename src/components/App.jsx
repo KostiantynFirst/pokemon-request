@@ -5,19 +5,24 @@ import { Component } from "react";
 export default class App extends Component {
 
   state = {
-    pokemon: null
+    pokemon: null, 
+    loading: false
   }
 
   componentDidMount() {
-    fetch(`https://pokeapi.co/api/v2/pokemon/ditto`)
+    this.setState({loading: true});
+    setTimeout(() => {
+      fetch(`https://pokeapi.co/api/v2/pokemon/ditto`)
       .then(res => res.json())
-      .then(console.log);
+      .then(pokemon => this.setState({ pokemon }));
+    }, 1000);
   }
 
   render() {
     return (
       <div style={{maxWidth: 1170, margin: '0 auto', padding: 20}}>
-        {this.state.pokemon && <div>This will be pokemon</div>}
+        {this.state.loading && <h1>Loading...</h1>}
+        {this.state.pokemon && (<div>{this.state.pokemon.name}</div>)}
       </div>
     );
   }
