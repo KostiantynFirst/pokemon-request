@@ -14,7 +14,8 @@ export default class App extends Component {
     setTimeout(() => {
       fetch(`https://pokeapi.co/api/v2/pokemon/ditto`)
       .then(res => res.json())
-      .then(pokemon => this.setState({ pokemon }));
+      .then(pokemon => this.setState({ pokemon }))
+      .finally(this.setState({loading: false}));
     }, 1000);
   }
 
