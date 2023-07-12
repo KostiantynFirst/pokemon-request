@@ -1,5 +1,6 @@
 import { Component } from 'react'; 
 import { ImSearch } from 'react-icons/im';
+import { toast } from 'react-toastify';
 
 const styles = { form: { marginBottom: 20 }};
 
@@ -15,8 +16,8 @@ export default class PokemonForm extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
-        if (this.state.pokemonName.trim() === ''){
-            alert('Please, enter pokemon name')
+        if (this.state.pokemonName.trim() === '') {
+            toast("Please, enter pokemon name");
             return;
         }
         
