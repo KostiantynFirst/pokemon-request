@@ -1,5 +1,5 @@
 import { Component } from 'react'; 
-import { ImSearch } from 'react-icons';
+import { ImSearch } from 'react-icons/im';
 
 const styles = { form: { marginBottom: 20 }};
 
@@ -15,6 +15,11 @@ export default class PokemonForm extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
+        if (this.state.pokemonName.trim() === ''){
+            alert('Please, enter pokemon name')
+            return;
+        }
+        
         this.props.onSubmit(this.state.pokemonName);
         this.setState({ pokemonName: '' })
     };
