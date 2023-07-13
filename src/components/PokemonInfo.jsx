@@ -20,7 +20,8 @@ export default class PokemonInfo extends Component {
 
             this.setState({ status: 'pending' })
             
-            fetch(`https://pokeapi.co/api/v2/pokemon/${nextName}`)
+            setTimeout(() => {
+                fetch(`https://pokeapi.co/api/v2/pokemon/${nextName}`)
                 .then(res => {
                     if (res.ok) {
                         return res.json();
@@ -30,6 +31,7 @@ export default class PokemonInfo extends Component {
                 })
                 .then(pokemon => this.setState({ pokemon, status: 'resolved' }))
                 .catch(error => this.setState({ error, status: 'rejected' }))
+            }, 3000);
 
         }
     }
@@ -37,13 +39,14 @@ export default class PokemonInfo extends Component {
     render() {
 
     const { pokemon, error, status } = this.state;
+    const { pokemonName } = this.props; 
 
     if(status === 'idle') {
         return <div>Enter pokemon name</div>
     }
 
     if(status === 'pending') {
-        return <PokemonPendingView  />
+        return <PokemonPendingView pokemonName={pokemonName}  />
     }
 
     if(status === 'rejected') {
