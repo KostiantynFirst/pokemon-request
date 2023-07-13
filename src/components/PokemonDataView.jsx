@@ -10,13 +10,13 @@ export default function PokemonDataView({ pokemon: { sprites, name, stats } }) {
         />
         <h2>{name}</h2>
         <ul>
-            {stats.map(entry => {
-                <li key={entry.stats.name}>
-                    {entry.stats.name}: {entry.base_stat}
+            {stats.map(entry => (
+                <li key={entry.stat.name}>
+                    {entry.stat.name}: {entry.base_stat}
                 </li>
-            })}
+            ))}
         </ul>
     </div>
-    )
+    );
     
 }

@@ -1,5 +1,7 @@
 import { Component } from "react";
 import PokemonFaultView from "./PokemonErrorView";
+import PokemonDataView from "./PokemonDataView";
+import PokemonPendingView from "./PokemonPendingView";
 
 export default class PokemonInfo extends Component {
 
@@ -41,7 +43,7 @@ export default class PokemonInfo extends Component {
     }
 
     if(status === 'pending') {
-        return <div>Loading...</div>
+        return <PokemonPendingView  />
     }
 
     if(status === 'rejected') {
@@ -49,14 +51,7 @@ export default class PokemonInfo extends Component {
     }
 
     if(status === 'resolved') {
-        return <div>
-        <p>{pokemon.name}</p>
-            <img 
-                src={pokemon.sprites.other['official-artwork'].front_default} 
-                alt="pokemonName" 
-                width="240" 
-            />
-        </div>
+        return <PokemonDataView pokemon={ pokemon } />
     }
 
         // return (
