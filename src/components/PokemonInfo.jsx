@@ -1,4 +1,5 @@
 import { Component } from "react";
+import PokemonFaultView from "./PokemonErrorView";
 
 export default class PokemonInfo extends Component {
 
@@ -44,7 +45,7 @@ export default class PokemonInfo extends Component {
     }
 
     if(status === 'rejected') {
-        return <div>{error.message}</div>
+        return <PokemonFaultView message={error.message} />
     }
 
     if(status === 'resolved') {
