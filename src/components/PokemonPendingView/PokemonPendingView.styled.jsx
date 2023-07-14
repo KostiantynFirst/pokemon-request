@@ -12,9 +12,9 @@ const spinAnimation = keyframes`
 
 export const PendingContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
-  font-size: 24px;
+  text-align: center;
 `;
 
 export const SpinnerIcon = styled(ImSpinner)`

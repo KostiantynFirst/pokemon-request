@@ -1,22 +1,22 @@
-import { PokemonDataContainer } from "./PokemonDataView.styled";
+import { PokemonDataContainer, PokemonImage, PokemonName, StatList, StatItem  } from "./PokemonDataView.styled";
 
 export default function PokemonDataView({ pokemon: { sprites, name, stats } }) {
     return (
     <PokemonDataContainer>
-        <img 
+        <PokemonImage 
             src={sprites.other['official-artwork'].front_default} 
-            alt="name" 
+            alt={name} 
             width="240"
             heigh="100"
         />
-        <h2>{name}</h2>
-        <ul>
+        <PokemonName>{name}</PokemonName>
+        <StatList>
             {stats.map(entry => (
-                <li key={entry.stat.name}>
+                <StatItem key={entry.stat.name}>
                     {entry.stat.name}: {entry.base_stat}
-                </li>
+                </StatItem>
             ))}
-        </ul>
+        </StatList>
     </PokemonDataContainer>
     );
     
