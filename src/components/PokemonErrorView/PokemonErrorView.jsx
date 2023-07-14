@@ -1,10 +1,11 @@
 import errorImage from './error.jpg';
+import { PokemonFaultContainer } from './PokemonErrorView.styled';
 
 export default function PokemonFaultView({ message }) {
     return (
-        <div role="alert">
+        <PokemonFaultContainer role="alert">
             <p>{message}</p>
             <img src={errorImage} alt="errorImage" width="240" />   
-        </div>
+        </PokemonFaultContainer>
     )
 }

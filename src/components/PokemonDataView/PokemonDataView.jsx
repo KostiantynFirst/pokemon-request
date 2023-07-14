@@ -1,7 +1,8 @@
+import { PokemonDataContainer } from "./PokemonDataView.styled";
 
 export default function PokemonDataView({ pokemon: { sprites, name, stats } }) {
     return (
-    <div>
+    <PokemonDataContainer>
         <img 
             src={sprites.other['official-artwork'].front_default} 
             alt="name" 
@@ -16,7 +17,7 @@ export default function PokemonDataView({ pokemon: { sprites, name, stats } }) {
                 </li>
             ))}
         </ul>
-    </div>
+    </PokemonDataContainer>
     );
     
 }

@@ -1,7 +1,7 @@
 import { Component } from "react";
-import PokemonFaultView from "./PokemonErrorView";
-import PokemonDataView from "./PokemonDataView";
-import PokemonPendingView from "./PokemonPendingView";
+import PokemonFaultView from "../PokemonErrorView/PokemonErrorView";
+import PokemonDataView from "../PokemonDataView/PokemonDataView";
+import PokemonPendingView from "../PokemonPendingView/PokemonPendingView";
 
 export default class PokemonInfo extends Component {
 
@@ -20,18 +20,16 @@ export default class PokemonInfo extends Component {
 
             this.setState({ status: 'pending' })
             
-            setTimeout(() => {
-                fetch(`https://pokeapi.co/api/v2/pokemon/${nextName}`)
-                .then(res => {
-                    if (res.ok) {
-                        return res.json();
-                    }
+            fetch(`https://pokeapi.co/api/v2/pokemon/${nextName}`)
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                }
 
-                    return Promise.reject(new Error(`${nextName} pokemon doesn't exist`))
-                })
-                .then(pokemon => this.setState({ pokemon, status: 'resolved' }))
-                .catch(error => this.setState({ error, status: 'rejected' }))
-            }, 3000);
+                return Promise.reject(new Error(`${nextName} pokemon doesn't exist`))
+            })
+            .then(pokemon => this.setState({ pokemon, status: 'resolved' }))
+            .catch(error => this.setState({ error, status: 'rejected' }))
 
         }
     }

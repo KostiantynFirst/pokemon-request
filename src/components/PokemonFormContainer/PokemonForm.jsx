@@ -1,8 +1,7 @@
 import { Component } from 'react'; 
 import { ImSearch } from 'react-icons/im';
+import { FormContainer, SearchInput, SearchButton } from './PokemonForm.styled';
 import { toast } from 'react-toastify';
-
-const styles = { form: { marginBottom: 20 }};
 
 export default class PokemonForm extends Component {
     state = {
@@ -27,19 +26,19 @@ export default class PokemonForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} style={styles.form}>
-                <input 
+            <FormContainer onSubmit={this.handleSubmit}>
+                <SearchInput 
                     type="text"
                     name="pokemonName"
                     value={this.state.pokemonName}
                     onChange={this.handleNameChange}
                 />
-                <button type="submit">
+                <SearchButton type="submit">
                     <ImSearch style={{ marginRight: 8 }}/>
                     Search
-                </button>
+                </SearchButton>
 
-            </form>
+            </FormContainer >
         )
     }
 }

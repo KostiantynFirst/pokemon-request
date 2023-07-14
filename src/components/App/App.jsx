@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { ToastContainer } from "react-toastify";
-import PokemonForm from "./PokemonForm";
-import PokemonInfo from "./PokemonInfo";
+import { AppContainer } from "./App.styled";
+import PokemonForm from "../PokemonFormContainer/PokemonForm";
+import PokemonInfo from "../PokemonInfo/PokemonInfo";
 
 
 export default class App extends Component {
@@ -16,11 +17,11 @@ export default class App extends Component {
    
  render() {
     return (
-      <div style={{maxWidth: 1170, margin: '0 auto', padding: 20}}>
+      <AppContainer>
        <PokemonForm onSubmit={this.handleFormSubmit} />
        <PokemonInfo pokemonName={this.state.pokemonName}/>
        <ToastContainer autoClose={3000} />
-      </div>
+      </AppContainer>
     );
   }
 }

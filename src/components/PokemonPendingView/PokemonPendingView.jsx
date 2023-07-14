@@ -1,15 +1,6 @@
-import { ImSpinner } from 'react-icons/im';
+import { PendingContainer, SpinnerIcon } from './PokemonPendingView.styled';
 import pendingImage from './pending.png'
-import PokemonDataView from './PokemonDataView';
-
-const styles = {
-    spinner: {
-      display: 'flex',
-      alignItems: 'center',
-      marginBottom: 10,
-      fontSize: 24,
-    },
-  };
+import PokemonDataView from '../PokemonDataView/PokemonDataView';
 
 export default function PokemonPendingView({pokemonName }) {
 
@@ -27,10 +18,10 @@ export default function PokemonPendingView({pokemonName }) {
  
     return (
         <div role="alert">
-            <div style={styles.spinner}>
-                <ImSpinner size="32" className="icon-spin" />
+            <PendingContainer>
+                <SpinnerIcon size="32" />
                  Loading...
-            </div>
+            </PendingContainer>
         <PokemonDataView pokemon={pokemon} />
         </div>
     )
