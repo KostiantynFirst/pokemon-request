@@ -13,10 +13,6 @@ export const SearchInput = styled.input`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   outline: none;
   text-align: center;
-
-  ::placeholder {
-    color: #aaa;
-  }
 `;
 
 export const SearchButton = styled.button`
@@ -29,13 +25,8 @@ export const SearchButton = styled.button`
   cursor: pointer;
   transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: #0056b3;
-  }
-
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+  @media (max-width: 450px) {
+    margin-top: 10px;
   }
 `;
 
